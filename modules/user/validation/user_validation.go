@@ -1,7 +1,7 @@
 package validation
 
 import (
-	"github.com/bagi-pangan/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
 	"github.com/go-playground/validator/v10"
 )
 

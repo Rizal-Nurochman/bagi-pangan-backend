@@ -1,4 +1,4 @@
-module github.com/bagi-pangan
+module github.com/Rizal-Nurochman/Bagi-Pangan-Backend
 
 go 1.23.0
 

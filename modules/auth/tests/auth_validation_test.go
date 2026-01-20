@@ -3,9 +3,9 @@ package tests
 import (
 	"testing"
 
-	"github.com/bagi-pangan/modules/auth/dto"
-	"github.com/bagi-pangan/modules/auth/validation"
-	userDto "github.com/bagi-pangan/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/validation"
+	userDto "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
 	"github.com/stretchr/testify/assert"
 )
 

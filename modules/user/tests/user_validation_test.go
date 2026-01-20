@@ -3,8 +3,8 @@ package tests
 import (
 	"testing"
 
-	"github.com/bagi-pangan/modules/user/dto"
-	"github.com/bagi-pangan/modules/user/validation"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/validation"
 	"github.com/stretchr/testify/assert"
 )
 

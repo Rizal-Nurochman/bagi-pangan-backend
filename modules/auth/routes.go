@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"github.com/bagi-pangan/modules/auth/controller"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/controller"
 	"github.com/gin-gonic/gin"
 	"github.com/samber/do"
 )

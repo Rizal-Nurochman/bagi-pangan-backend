@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/bagi-pangan/modules/user/dto"
-	"github.com/bagi-pangan/modules/user/repository"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/repository"
 	"gorm.io/gorm"
 )
 

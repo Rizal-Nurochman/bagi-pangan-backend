@@ -3,12 +3,12 @@ package controller
 import (
 	"net/http"
 
-	"github.com/bagi-pangan/modules/auth/dto"
-	"github.com/bagi-pangan/modules/auth/service"
-	"github.com/bagi-pangan/modules/auth/validation"
-	userDto "github.com/bagi-pangan/modules/user/dto"
-	"github.com/bagi-pangan/pkg/constants"
-	"github.com/bagi-pangan/pkg/utils"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/service"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/validation"
+	userDto "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/constants"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/samber/do"
 	"gorm.io/gorm"

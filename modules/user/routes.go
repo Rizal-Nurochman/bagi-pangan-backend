@@ -1,10 +1,10 @@
 package user
 
 import (
-	"github.com/bagi-pangan/middlewares"
-	"github.com/bagi-pangan/modules/auth/service"
-	"github.com/bagi-pangan/modules/user/controller"
-	"github.com/bagi-pangan/pkg/constants"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/middlewares"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/service"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/controller"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/constants"
 	"github.com/gin-gonic/gin"
 	"github.com/samber/do"
 )

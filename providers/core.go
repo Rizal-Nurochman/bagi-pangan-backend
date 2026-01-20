@@ -1,14 +1,14 @@
 package providers
 
 import (
-	"github.com/bagi-pangan/config"
-	authController "github.com/bagi-pangan/modules/auth/controller"
-	authRepo "github.com/bagi-pangan/modules/auth/repository"
-	authService "github.com/bagi-pangan/modules/auth/service"
-	userController "github.com/bagi-pangan/modules/user/controller"
-	"github.com/bagi-pangan/modules/user/repository"
-	userService "github.com/bagi-pangan/modules/user/service"
-	"github.com/bagi-pangan/pkg/constants"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/config"
+	authController "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/controller"
+	authRepo "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/repository"
+	authService "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/service"
+	userController "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/controller"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/repository"
+	userService "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/service"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/constants"
 	"github.com/samber/do"
 	"gorm.io/gorm"
 )

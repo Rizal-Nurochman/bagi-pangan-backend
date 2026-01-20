@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bagi-pangan/database/entities"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database/entities"
 	"gorm.io/gorm"
 )
 
@@ -354,8 +354,8 @@ func (%s *%s) BeforeCreate(tx *gorm.DB) (err error) {
 		migrationTemplate = fmt.Sprintf(`package migrations
 
 import (
-	"github.com/bagi-pangan/database"
-	"github.com/bagi-pangan/database/entities"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database/entities"
 	"gorm.io/gorm"
 )
 
@@ -375,7 +375,7 @@ func Down%s(db *gorm.DB) error {
 		migrationTemplate = fmt.Sprintf(`package migrations
 
 import (
-	"github.com/bagi-pangan/database"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database"
 	"gorm.io/gorm"
 )
 

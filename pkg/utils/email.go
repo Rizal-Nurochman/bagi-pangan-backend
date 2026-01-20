@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/bagi-pangan/config"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/config"
 	"gopkg.in/gomail.v2"
 )
 

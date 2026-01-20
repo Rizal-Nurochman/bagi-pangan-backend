@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/bagi-pangan/database/seeders/seeds"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database/seeders/seeds"
 	"gorm.io/gorm"
 )
 

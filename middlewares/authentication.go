@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/bagi-pangan/modules/auth/service"
-	"github.com/bagi-pangan/modules/user/dto"
-	"github.com/bagi-pangan/pkg/utils"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/service"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/utils"
 	"github.com/gin-gonic/gin"
 )
 

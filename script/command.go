@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bagi-pangan/database"
-	"github.com/bagi-pangan/pkg/constants"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/constants"
 	"github.com/samber/do"
 	"gorm.io/gorm"
 )

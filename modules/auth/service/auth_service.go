@@ -3,13 +3,13 @@ package service
 import (
 	"context"
 
-	"github.com/bagi-pangan/database/entities"
-	"github.com/bagi-pangan/modules/auth/dto"
-	authRepo "github.com/bagi-pangan/modules/auth/repository"
-	userDto "github.com/bagi-pangan/modules/user/dto"
-	"github.com/bagi-pangan/modules/user/repository"
-	"github.com/bagi-pangan/pkg/helpers"
-	"github.com/bagi-pangan/pkg/utils"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database/entities"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/dto"
+	authRepo "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/auth/repository"
+	userDto "github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/dto"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/modules/user/repository"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/helpers"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/utils"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )

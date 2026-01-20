@@ -1,8 +1,8 @@
 package entities
 
 import (
-	"github.com/bagi-pangan/pkg/constants"
-	"github.com/bagi-pangan/pkg/helpers"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/constants"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/pkg/helpers"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )

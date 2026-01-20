@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/bagi-pangan/database/entities"
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/database/entities"
 	"gorm.io/gorm"
 )
 
