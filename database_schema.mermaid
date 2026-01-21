@@ -1,0 +1,324 @@
+erDiagram
+    %% ============================================================
+    %% USERS & AUTHENTICATION MODULE
+    %% ============================================================
+    
+    users ||--o| mitra_profiles : "has"
+    users ||--o| receipt_profiles : "has"
+    %% users ||--o{ chat_conversations : "creates"
+    %% users ||--o{ notifications : "receives"
+    %% users ||--o{ audit_logs : "performs"
+    
+    users {
+        uuid id PK
+        varchar email UK
+        varchar phone UK
+        varchar password_hash
+        enum role "mitra|penerima|admin"
+        enum status "active|inactive|suspended|pending_verification"
+        varchar codeVerification
+        boolean email_verified
+        boolean phone_verified
+        timestamp created_at
+        timestamp updated_at
+        timestamp last_login_at
+    }
+    
+    mitra_profiles {
+        uuid id PK
+        uuid user_id FK,UK
+        varchar business_name
+        varchar business_type
+        varchar owner_name
+        varchar business_registration_number
+        varchar pickup_instructions
+        text address
+        varchar city
+        varchar province
+        varchar whatsapp_number
+        jsonb operational_hours
+        timestamp verified_at
+        uuid verified_by FK
+        varchar business_registration_doc
+        varchar owner_id_card_doc
+        varchar business_photo_url
+        int total_portions_sells
+        decimal rating_avg
+        int rating_count
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    receipt_profiles {
+        uuid id PK
+        uuid user_id FK,UK
+        varchar full_name
+        varchar nik
+        date date_of_birth
+        varchar occupation
+        varchar numberPhone
+        text address
+        varchar city
+        varchar province
+        varchar photo_url
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    %% ============================================================
+    %% POS MODULE
+    %% ============================================================
+    
+    mitra_profiles ||--o{ products : "owns"
+    mitra_profiles ||--o{ transactions : "sells"
+    mitra_profiles ||--o{ stock_movements : "manages"
+    
+    categories ||--o{ products : "categorizes"
+    
+    products ||--o{ transaction_items : "sold_in"
+    products ||--o{ stock_movements : "tracked_by"
+    
+    transactions ||--|{ transaction_items : "contains"
+    
+    categories {
+        uuid id PK
+        varchar name
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    products {
+        uuid id PK
+        uuid mitra_id FK
+        uuid category_id FK
+        varchar name
+        text description
+        varchar code
+        int price
+        int stock_quantity
+        boolean is_available
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    products_detail {
+      uuid id PK
+      uuid products FK
+      varchar image_url
+      datetime shelf_life
+      enum food_condition "excellent|good|fair"
+    }
+    
+    transactions {
+        uuid id PK
+        uuid mitra_id FK
+        uuid receipt_id FK
+        varchar transaction_number UK
+        int subtotal
+        int total_amount
+        int payment_amount
+        int change_amount
+        enum status "pending|completed"
+        text notes
+        date pickup_date 
+        time pickup_time_start 
+        time pickup_time_end
+        timestamp created_at
+        timestamp updated_at
+        timestamp completed_at
+    }
+    
+    transaction_items {
+        uuid id PK
+        uuid transaction_id FK
+        uuid product_id FK
+        int quantity
+        int subtotal
+        text notes
+        timestamp created_at
+    }
+    
+    %% ============================================================
+    %% SURPLUS DONATION MODULE
+    %% ============================================================
+    
+    mitra_profiles ||--o{ surplus_listings : "donates"
+    
+    surplus_listings ||--o{ surplus_claims : "receives"
+    surplus_listings ||--o{ surplus_pickups : "verified_by"
+    surplus_listings ||--o{ surplus_ratings : "rated_by"
+    surplus_listings ||--o{ matching_logs : "matched_with"
+    
+    receipt_profiles ||--o{ surplus_claims : "requests"
+    receipt_profiles ||--o{ surplus_pickups : "picks_up"
+    receipt_profiles ||--o{ surplus_ratings : "rates"
+    
+    surplus_claims ||--o| surplus_pickups : "results_in"
+    surplus_claims ||--o| surplus_ratings : "rated_via"
+    
+    categories ||--o{ surplus_listings :  "categorizes"
+    
+    %% surplus_claims {
+    %%     uuid id PK
+    %%     uuid surplus_listing_id FK
+    %%     uuid penerima_id FK
+    %%     varchar claim_number UK
+    %%     int portions_requested
+    %%     int portions_approved
+    %%     enum status "pending|approved|rejected|cancelled|completed|no_show"
+    %%     decimal priority_score
+    %%     decimal distance_km
+    %%     text matching_reason
+    %%     varchar qr_code UK
+    %%     varchar qr_code_url
+    %%     date pickup_date
+    %%     time pickup_time
+    %%     timestamp picked_up_at
+    %%     text rejection_reason
+    %%     timestamp rejected_at
+    %%     uuid rejected_by FK
+    %%     text penerima_notes
+    %%     text mitra_notes
+    %%     timestamp created_at
+    %%     timestamp updated_at
+    %%     timestamp approved_at
+    %%     timestamp completed_at
+    %% }
+    
+    %% surplus_pickups {
+    %%     uuid id PK
+    %%     uuid claim_id FK
+    %%     uuid surplus_listing_id FK
+    %%     uuid penerima_id FK
+    %%     uuid mitra_id FK
+    %%     int portions_picked_up
+    %%     timestamp picked_up_at
+    %%     varchar qr_code_scanned
+    %%     uuid verified_by FK
+    %%     varchar pickup_photo_url
+    %%     text penerima_feedback
+    %%     text mitra_feedback
+    %%     timestamp created_at
+    %% }
+    
+    
+    %% ============================================================
+    %% AI & ANALYTICS MODULE
+    %% ============================================================
+    
+    %% chat_conversations ||--|{ chat_messages : "contains"
+    
+    %% users ||--o{ chat_conversations :  "initiates"
+    %% mitra_profiles ||--o{ chat_conversations : "context_for"
+    
+    %% mitra_profiles ||--o{ ai_suggestions : "receives"
+    %% products ||--o{ ai_suggestions :  "suggested_for"
+    
+    %% chat_conversations {
+    %%     uuid id PK
+    %%     uuid user_id FK
+    %%     enum chat_type "umkm_assistant|penerima_support|general"
+    %%     uuid mitra_id FK
+    %%     jsonb context_data
+    %%     varchar title
+    %%     boolean is_active
+    %%     timestamp created_at
+    %%     timestamp updated_at
+    %%     timestamp closed_at
+    %% }
+    
+    %% chat_messages {
+    %%     uuid id PK
+    %%     uuid conversation_id FK
+    %%     enum role "user|assistant|system"
+    %%     text content
+    %%     varchar model_used
+    %%     int tokens_used
+    %%     int processing_time_ms
+    %%     decimal confidence_score
+    %%     jsonb context_sources
+    %%     timestamp created_at
+    %% }
+    
+    %% ai_suggestions {
+    %%     uuid id PK
+    %%     uuid mitra_id FK
+    %%     enum suggestion_type "surplus_item|price_adjustment|stock_alert|trend_insight"
+    %%     varchar title
+    %%     text description
+    %%     jsonb suggested_action
+    %%     uuid product_id FK
+    %%     varchar urgency "low|medium|high|critical"
+    %%     decimal confidence_score
+    %%     text reasoning
+    %%     enum status "pending|accepted|rejected|expired"
+    %%     timestamp responded_at
+    %%     text response_notes
+    %%     timestamp created_at
+    %%     timestamp expires_at
+    %% }
+    
+    %% matching_logs {
+    %%     uuid id PK
+    %%     uuid surplus_listing_id FK
+    %%     varchar algorithm_version
+    %%     varchar matching_strategy
+    %%     int total_penerima_evaluated
+    %%     jsonb ranking_results
+    %%     int processing_time_ms
+    %%     timestamp created_at
+    %% }
+    
+    %% ============================================================
+    %% NOTIFICATIONS
+    %% ============================================================
+    
+    %% users ||--o{ notifications : "receives"
+    
+    %% notifications {
+    %%     uuid id PK
+    %%     uuid user_id FK
+    %%     enum notification_type "claim_approved|claim_rejected|pickup_reminder|new_surplus_available|surplus_claimed|rating_received|verification_approved|verification_rejected|stock_low|ai_suggestion"
+    %%     varchar title
+    %%     text message
+    %%     varchar action_url
+    %%     varchar action_label
+    %%     varchar related_entity_type
+    %%     uuid related_entity_id
+    %%     boolean is_read
+    %%     timestamp read_at
+    %%     boolean sent_via_email
+    %%     boolean sent_via_push
+    %%     boolean sent_via_whatsapp
+    %%     timestamp created_at
+    %%     timestamp expires_at
+    %% }
+    
+    %% ============================================================
+    %% SYSTEM TABLES
+    %% ============================================================
+    
+    %% users ||--o{ audit_logs : "logged_by"
+    
+    %% audit_logs {
+    %%     uuid id PK
+    %%     uuid user_id FK
+    %%     varchar action "create|update|delete|login|logout"
+    %%     varchar entity_type
+    %%     uuid entity_id
+    %%     jsonb old_values
+    %%     jsonb new_values
+    %%     inet ip_address
+    %%     text user_agent
+    %%     timestamp created_at
+    %% }
+    
+    %% system_settings {
+    %%     varchar key PK
+    %%     text value
+    %%     text description
+    %%     varchar data_type "string|number|boolean|json"
+    %%     boolean is_public
+    %%     uuid updated_by FK
+    %%     timestamp updated_at
+    %% }
