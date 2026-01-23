@@ -1,9 +1,10 @@
-package config
+package migratons
 
 import (
 	"fmt"
 	"os"
 
+	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/config"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
@@ -32,7 +33,7 @@ func SetUpDatabaseConnection() *gorm.DB {
 		DSN:                  dsn,
 		PreferSimpleProtocol: true,
 	}), &gorm.Config{
-		Logger: SetupLogger(),
+		Logger: config.SetupLogger(),
 	})
 	if err != nil {
 		panic(err)
