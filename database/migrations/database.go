@@ -1,4 +1,4 @@
-package migratons
+package migrations
 
 import (
 	"fmt"
@@ -7,7 +7,6 @@ import (
 	"github.com/Rizal-Nurochman/Bagi-Pangan-Backend/config"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -63,22 +62,6 @@ func SetUpTestDatabaseConnection() *gorm.DB {
 
 	RunExtension(db)
 
-	return db
-}
-
-func SetUpInMemoryDatabase() *gorm.DB {
-	db, err := gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
-	if err != nil {
-		panic(err)
-	}
-	return db
-}
-
-func SetUpTestSQLiteDatabase() *gorm.DB {
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
-	if err != nil {
-		panic(err)
-	}
 	return db
 }
 
