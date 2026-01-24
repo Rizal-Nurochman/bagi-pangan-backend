@@ -44,6 +44,17 @@ erDiagram
         timestamp created_at
         timestamp updated_at
     }
+
+    review_mitra {
+        uuid id
+        uuid user_id FK
+        uuid mitra_id FK
+        decimal rating
+        text description
+        varchar image_url
+        timestamp created_at
+        timestamp updated_at
+    }
     
     receipt_profiles {
         uuid id PK
@@ -139,62 +150,10 @@ erDiagram
     
     mitra_profiles ||--o{ surplus_listings : "donates"
     
-    surplus_listings ||--o{ surplus_claims : "receives"
-    surplus_listings ||--o{ surplus_pickups : "verified_by"
-    surplus_listings ||--o{ surplus_ratings : "rated_by"
     surplus_listings ||--o{ matching_logs : "matched_with"
-    
-    receipt_profiles ||--o{ surplus_claims : "requests"
-    receipt_profiles ||--o{ surplus_pickups : "picks_up"
-    receipt_profiles ||--o{ surplus_ratings : "rates"
-    
-    surplus_claims ||--o| surplus_pickups : "results_in"
-    surplus_claims ||--o| surplus_ratings : "rated_via"
     
     categories ||--o{ surplus_listings :  "categorizes"
     
-    %% surplus_claims {
-    %%     uuid id PK
-    %%     uuid surplus_listing_id FK
-    %%     uuid penerima_id FK
-    %%     varchar claim_number UK
-    %%     int portions_requested
-    %%     int portions_approved
-    %%     enum status "pending|approved|rejected|cancelled|completed|no_show"
-    %%     decimal priority_score
-    %%     decimal distance_km
-    %%     text matching_reason
-    %%     varchar qr_code UK
-    %%     varchar qr_code_url
-    %%     date pickup_date
-    %%     time pickup_time
-    %%     timestamp picked_up_at
-    %%     text rejection_reason
-    %%     timestamp rejected_at
-    %%     uuid rejected_by FK
-    %%     text penerima_notes
-    %%     text mitra_notes
-    %%     timestamp created_at
-    %%     timestamp updated_at
-    %%     timestamp approved_at
-    %%     timestamp completed_at
-    %% }
-    
-    %% surplus_pickups {
-    %%     uuid id PK
-    %%     uuid claim_id FK
-    %%     uuid surplus_listing_id FK
-    %%     uuid penerima_id FK
-    %%     uuid mitra_id FK
-    %%     int portions_picked_up
-    %%     timestamp picked_up_at
-    %%     varchar qr_code_scanned
-    %%     uuid verified_by FK
-    %%     varchar pickup_photo_url
-    %%     text penerima_feedback
-    %%     text mitra_feedback
-    %%     timestamp created_at
-    %% }
     
     
     %% ============================================================
