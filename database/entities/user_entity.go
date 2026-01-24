@@ -14,18 +14,17 @@ const (
 )
 
 type User struct {
-	ID               uint       `gorm:"primaryKey;autoIncrement" json:"id"`
-	Email            string     `gorm:"type:varchar(255);uniqueIndex;not null" json:"email"`
-	Phone            string     `gorm:"type:varchar(20);uniqueIndex;not null" json:"phone"`
-	PasswordHash     string     `gorm:"type:varchar(255);not null" json:"-"`
-	Role             UserRole   `gorm:"type:varchar(50);not null;default:'penerima'" json:"role"`
-	CodeVerification string     `gorm:"type:varchar(10)" json:"-"`
+	ID               uint       `gorm:"primaryKey;autoIncrement"`
+	Email            string     `gorm:"type:varchar(255);uniqueIndex;not null"`
+	Phone            string     `gorm:"type:varchar(20);uniqueIndex;not null"`
+	PasswordHash     string     `gorm:"type:varchar(255);not null"`
+	Role             UserRole   `gorm:"type:varchar(50);not null;default:'penerima'"`
+	CodeVerification string     `gorm:"type:varchar(10)"`
 	CodeExpiredAt    *time.Time `gorm:"type:timestamp with time zone"`
-	EmailVerified    bool       `gorm:"default:false" json:"email_verified"`
-	LastLoginAt      *time.Time `gorm:"type:timestamp with time zone" json:"last_login_at"`
+	EmailVerified    bool       `gorm:"default:false"`
 
-	MitraProfile   *MitraProfile   `gorm:"foreignKey:UserID" json:"mitra_profile,omitempty"`
-	ReceiptProfile *ReceiptProfile `gorm:"foreignKey:UserID" json:"receipt_profile,omitempty"`
+	MitraProfile   *MitraProfile   `gorm:"foreignKey:UserID"`
+	ReceiptProfile *ReceiptProfile `gorm:"foreignKey:UserID"`
 
 	Timestamp
 }

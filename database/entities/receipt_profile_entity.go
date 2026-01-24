@@ -5,18 +5,18 @@ import (
 )
 
 type ReceiptProfile struct {
-	ID          uint       `gorm:"primaryKey;autoIncrement" json:"id"`
-	UserID      uint       `gorm:"uniqueIndex;not null" json:"user_id"`
-	FullName    string     `gorm:"type:varchar(255)" json:"full_name"`
-	DateOfBirth *time.Time `gorm:"type:date" json:"date_of_birth"`
-	Occupation  string     `gorm:"type:varchar(100)" json:"occupation"`
-	Address     string     `gorm:"type:text" json:"address"`
-	City        string     `gorm:"type:varchar(100)" json:"city"`
-	Province    string     `gorm:"type:varchar(100)" json:"province"`
-	PhotoURL    string     `gorm:"type:varchar(500)" json:"photo_url"`
+	ID          uint       `gorm:"primaryKey;autoIncrement"`
+	UserID      uint       `gorm:"uniqueIndex;not null"`
+	FullName    string     `gorm:"type:varchar(255)"`
+	DateOfBirth *time.Time `gorm:"type:date"`
+	Occupation  string     `gorm:"type:varchar(100)"`
+	Address     string     `gorm:"type:text"`
+	City        string     `gorm:"type:varchar(100)"`
+	Province    string     `gorm:"type:varchar(100)"`
+	PhotoURL    string     `gorm:"type:varchar(500)"`
 
-	User         User          `gorm:"foreignKey:UserID" json:"-"`
-	Transactions []Transaction `gorm:"foreignKey:ReceiptID" json:"transactions,omitempty"`
+	User         User          `gorm:"foreignKey:UserID"`
+	Transactions []Transaction `gorm:"foreignKey:ReceiptID"`
 
 	Timestamp
 }

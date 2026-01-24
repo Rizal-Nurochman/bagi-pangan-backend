@@ -21,7 +21,7 @@ const (
 )
 
 type SurplusListing struct {
-	ID                 uint          `gorm:"primaryKey;autoIncrement" json:"id"`
+	ID                 uint          `gorm:"primaryKey;autoIncrement"`
 	MitraID            uint          `gorm:"not null;index" json:"mitra_id"`
 	CategoryID         *uint         `gorm:"index" json:"category_id"`
 	Name               string        `gorm:"type:varchar(255);not null" json:"name"`

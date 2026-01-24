@@ -1,10 +1,10 @@
 package entities
 
 type Category struct {
-	ID   uint   `gorm:"primaryKey;autoIncrement" json:"id"`
-	Name string `gorm:"type:varchar(100);not null;uniqueIndex" json:"name"`
+	ID   uint   `gorm:"primaryKey;autoIncrement"`
+	Name string `gorm:"type:varchar(100);not null;uniqueIndex"`
 
-	SurplusListings []SurplusListing `gorm:"foreignKey:CategoryID" json:"surplus_listings,omitempty"`
+	SurplusListings []SurplusListing `gorm:"foreignKey:CategoryID"`
 
 	Timestamp
 }

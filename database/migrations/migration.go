@@ -17,8 +17,7 @@ func MigrationsDatabase() {
 		&entities.SurplusListing{},
 		&entities.TransactionItem{},
 		&entities.Transaction{},
-		&entities.Timestamp{},
-		&entities.Authorization{},
+		&entities.Review_Mitra{},
 	)
 	if err != nil {
 		log.Println("Database migration failed:", err)
